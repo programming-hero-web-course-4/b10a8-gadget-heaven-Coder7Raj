@@ -28,7 +28,7 @@ const HomeBanner = ({ product }) => {
 
       {/* Conditional Image Section */}
       {!product && (
-        <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 z-0 w-7/12 h-[500px] p-2 bg-slate-100 bg-opacity-35 border border-white rounded-lg">
+        <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 z-0 w-7/12 h-[500px] p-2 bg-slate-100 bg-opacity-35 border border-white rounded-lg">
           <img
             src={image}
             alt="Gadget Heaven Banner"

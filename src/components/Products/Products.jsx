@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Product from "../Product/Product";
 
 const Products = () => {
   const [data, setData] = useState([]);
-  fetch("/public/products.json")
-    .then((res) => res.json())
-    .then((data) => setData(data));
+  useEffect(() => {
+    fetch("/public/products.json")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
   return (
     <div>
       <h1 className="text-3xl text-center font-bold mb-8">
