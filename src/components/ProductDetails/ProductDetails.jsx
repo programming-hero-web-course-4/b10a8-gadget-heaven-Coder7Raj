@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { IoIosCart } from "react-icons/io";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
+import { CartContext } from "../../Context/Context";
 
 const ProductDetails = () => {
   const { id } = useParams(); // Get the ID from the URL
   const [product, setProduct] = useState(null);
+  const [wishlish, setWishlist] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const { addToCart, addToWish } = useContext(CartContext);
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch("/products.json"); // Fetch all products
@@ -45,6 +47,27 @@ const ProductDetails = () => {
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Successfully added!");
+    addToCart(product);
+  };
+
+  const addWish = async () => {
+    // Retrieve the existing wishlist from localStorage
+    const wishAll = localStorage.getItem("wish");
+
+    // Initialize the wish array, or set it to an empty array if it doesn't exist
+    let wish = wishAll ? JSON.parse(wishAll) : [];
+    // console.log("wish", wish);
+
+    // Check if the product already exists in the wishlist
+    const isExist = wish.find((item) => item.id === product.id);
+    if (isExist) return alert("Coffee already exists!");
+
+    // Push the new product to the wishlist
+    wish.push(product); // Use product instead of wishlish
+    localStorage.setItem("wish", JSON.stringify(wish)); // Save the updated wishlist to localStorage
+
+    alert("Successfully added!");
+    addToWish(product);
   };
 
   const {
@@ -152,7 +175,7 @@ const ProductDetails = () => {
                 </span>
               </button>
             </Link>
-            <Link>
+            <Link onClick={() => addWish()}>
               <button className="p-2 border border-slate-500 rounded-full font-bold text-xl">
                 <IoIosHeartEmpty />
               </button>

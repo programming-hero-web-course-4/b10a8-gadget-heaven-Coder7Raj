@@ -1,8 +1,37 @@
 import { NavLink } from "react-router-dom";
 import { IoMdCart } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
+import { useContext, useEffect, useState } from "react";
+import getAllCart from "../LocalStorage/LocalStorage";
+import { CartContext, Context } from "../../Context/Context";
 
-const Navbar = () => {
+const Navbar = ({ cartCount }) => {
+  // const data = getAllCart(); const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
+  const { carts = [], wishs } = useContext(CartContext);
+  // console.log(carts);
+  const cartCounts = carts.length;
+  console.log("cartCounts", cartCounts);
+  const wishCounts = wishs.length;
+  // console.log("wishs", wishs);
+  // useEffect(() => {
+  //   // console.log("Navbar rendered"); // Log each render
+
+  //   const fetchCart = async () => {
+  //     try {
+  //       const fetchedCart = await getAllCart();
+  //       setCart(fetchedCart);
+  //       // console.log("Fetched cart data:", fetchedCart); // Log fetched data
+  //     } catch (error) {
+  //       console.error("Failed to fetch cart data:", error);
+  //     }
+  //   };
+
+  //   fetchCart();
+  // }, []);
+
+  // console.log("Current cart in Navbar:", cart); // Log current cart state
+
   return (
     <div className="navbar bg-base-100 border border-red-500 px-4 md:px-6 lg:px-16">
       <div className="navbar-start">
@@ -33,7 +62,7 @@ const Navbar = () => {
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
-                `font-bold ${isActive ? "text-warning" : "hover:text-red-600"}`
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
               }
             >
               Dashboard
@@ -84,17 +113,27 @@ const Navbar = () => {
               `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
             }
           >
-            Choice
+            cose
           </NavLink>
         </ul>
       </div>
       <div className="navbar-end">
         <div className="flex gap-2">
-          <div className="p-2 rounded-full text-xl">
+          <div className="relative p-2 rounded-full text-xl">
             <IoMdCart />
+            {cartCounts > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full px-1">
+                {cartCounts}
+              </span>
+            )}
           </div>
           <div className="p-2 rounded-full text-xl">
             <FaRegHeart />
+            {wishCounts == 0 || (
+              <span className="absolute top-2 right-16 bg-red-600 text-white text-xs font-bold rounded-full px-1">
+                {wishCounts}
+              </span>
+            )}
           </div>
         </div>
       </div>

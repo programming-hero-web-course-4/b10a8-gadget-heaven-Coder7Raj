@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "category": "Laptop"
+  },
+  {
+    "id": 2,
+    "category": "Phone"
+  },
+  {
+    "id": 3,
+    "category": "Ear Pods"
+  },
+  {
+    "id": 4,
+    "category": "Smart Watch"
+  },
+  {
+    "id": 5,
+    "category": "Tablet"
+  }
+]

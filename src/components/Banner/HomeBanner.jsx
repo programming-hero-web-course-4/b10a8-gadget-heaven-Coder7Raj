@@ -1,6 +1,7 @@
 import image from "../../assets/banner.jpg";
 
 const HomeBanner = ({ product }) => {
+  // console.log("banner");
   return (
     <div className="pb-[450px]">
       <div className="bg-[#9538E2] relative flex items-center justify-center text-white pb-40">

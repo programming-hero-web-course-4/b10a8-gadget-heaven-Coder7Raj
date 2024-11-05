@@ -1,11 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartItems from "../../CartItems/CartItems";
 import WishList from "../../WishList/WishList";
+// import { getAllCart } from "../../LocalStorage/LocalStorage";
+import { CartContext } from "../../../Context/Context";
 import getAllCart from "../../LocalStorage/LocalStorage";
+import getAllWish from "../../LocalStorage/wishstorage";
+// import { getAllCart } from "../../LocalStorage/LocalStorage";
 
 const Dashboard = () => {
   const [cart, setCart] = useState([]);
-
+  const [wish, setWish] = useState([]);
+  const context = useContext(CartContext);
+  // console.log(context);
   useEffect(() => {
     const fetchCart = async () => {
       const fetchedCart = await getAllCart(); // Assuming this returns the cart data
@@ -15,6 +21,16 @@ const Dashboard = () => {
     fetchCart();
   }, []);
 
+  useEffect(() => {
+    const fetchWish = async () => {
+      const wish = await getAllWish(); // Assuming this returns the cart data
+      setWish(wish);
+    };
+
+    fetchWish();
+  }, []);
+  // console.log(wish);
+
   // State to track the active tab
   const [activeTab, setActiveTab] = useState("tab1");
 
@@ -22,7 +38,7 @@ const Dashboard = () => {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <div>
@@ -62,12 +78,9 @@ const Dashboard = () => {
 
       <div className="mt-20">
         {activeTab === "tab1" &&
-          (cart.length > 0 ? (
-            <CartItems cart={cart} />
-          ) : (
-            <p>No items in the cart.</p>
-          ))}
-        {activeTab === "tab2" && <WishList />}
+          (cart.length > 0 ? <CartItems /> : <p>No items in the cart.</p>)}
+        {activeTab === "tab2" &&
+          (wish.length > 0 ? <WishList /> : <p>No wishList available!</p>)}
       </div>
     </div>
   );

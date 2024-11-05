@@ -3,7 +3,7 @@ const getAllCart = () => {
 
   if (all) {
     const cart = JSON.parse(all);
-    console.log(cart);
+    // console.log(cart);
     return cart;
   } else {
     console.log([]);
@@ -11,4 +11,4 @@ const getAllCart = () => {
   }
 };
 
-export default getAllCart;
+export default getAllCart; // Named export
