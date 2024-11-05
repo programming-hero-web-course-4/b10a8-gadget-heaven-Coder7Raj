@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { IoIosCart } from "react-icons/io";
 import { IoIosHeartEmpty } from "react-icons/io";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const { id } = useParams(); // Get the ID from the URL
@@ -23,6 +25,28 @@ const ProductDetails = () => {
   if (loading) return <div>Loading...</div>;
   if (!product) return <div>Product not found</div>;
 
+  const getAllCart = () => {
+    const all = localStorage.getItem("cart");
+
+    if (all) {
+      const cart = JSON.parse(all);
+      return cart;
+    } else {
+      console.log([]);
+      return [];
+    }
+  };
+
+  const handleAdd = async () => {
+    const cart = getAllCart();
+    const isExist = cart.find((item) => item.id == product.id);
+    if (isExist) return alert("Coffee already exists!");
+
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Successfully added!");
+  };
+
   const {
     title,
     image,
@@ -34,6 +58,8 @@ const ProductDetails = () => {
   } = product;
   return (
     <div className="pb-[360px]">
+      <ToastContainer />
+
       <div className="bg-[#9538E2] relative flex items-center justify-center text-white pb-72">
         {/* Text Section */}
         <div className="text-center space-y-4 pt-20 px-4">
@@ -115,7 +141,10 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="flex gap-4 items-center">
-            <Link className="bg-[#9538E2] rounded-xl border-none outline-none">
+            <Link
+              onClick={() => handleAdd()}
+              className="bg-[#9538E2] rounded-xl border-none outline-none"
+            >
               <button className="p-2 flex items-center space-x-2">
                 <span className="text-white font-bold">Add To Cart</span>
                 <span className="text-lg text-white font-bold">
