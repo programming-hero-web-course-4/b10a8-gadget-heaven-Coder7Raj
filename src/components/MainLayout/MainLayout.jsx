@@ -5,23 +5,23 @@ import { useEffect, useState } from "react";
 import getAllCart from "../LocalStorage/LocalStorage";
 
 const MainLayout = () => {
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
 
-  useEffect(() => {
-    const fetchCart = async () => {
-      const fetchedCart = await getAllCart(); // Assuming this returns the cart data
-      setCart(fetchedCart);
-    };
+  // useEffect(() => {
+  //   const fetchCart = async () => {
+  //     const fetchedCart = await getAllCart(); // Assuming this returns the cart data
+  //     setCart(fetchedCart);
+  //   };
 
-    fetchCart();
-  }, []);
-  // console.log("raj", cart);
+  //   fetchCart();
+  // }, []);
+  // // console.log("raj", cart);
   // console.log("object");
   // This function can be called whenever items are added or removed from the cart
-  const updateCart = (newCart) => {
-    setCartItems(newCart);
-    localStorage.setItem("cart", JSON.stringify(newCart)); // Update local storage
-  };
+  // const updateCart = (newCart) => {
+  //   setCartItems(newCart);
+  //   localStorage.setItem("cart", JSON.stringify(newCart)); // Update local storage
+  // };
 
   // const cartCount = cartItems.length;
   // console.log("cart", cartCount);
@@ -34,10 +34,10 @@ const MainLayout = () => {
       </header>
       {/* Main Content */}
       <main className="min-h-[calc(100vh-254px)] container mx-auto">
-        <Outlet context={{ updateCart }} />{" "}
-        {/* Pass updateCart to child components */}
+        <Outlet /> {/* Pass updateCart to child components */}
       </main>
       {/* Footer */}
+
       <footer>
         <Footer />
       </footer>

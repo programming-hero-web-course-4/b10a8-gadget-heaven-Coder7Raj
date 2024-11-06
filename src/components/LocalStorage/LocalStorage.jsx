@@ -2,9 +2,9 @@ const getAllCart = () => {
   const all = localStorage.getItem("cart");
 
   if (all) {
-    const cart = JSON.parse(all);
+    const carts = JSON.parse(all);
     // console.log(cart);
-    return cart;
+    return carts;
   } else {
     console.log([]);
     return [];

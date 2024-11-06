@@ -4,7 +4,9 @@ import { IoIosCart } from "react-icons/io";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { CartContext } from "../../Context/Context";
+// import getAllCart from "../LocalStorage/LocalStorage";
 
 const ProductDetails = () => {
   const { id } = useParams(); // Get the ID from the URL
@@ -38,7 +40,6 @@ const ProductDetails = () => {
       return [];
     }
   };
-
   const handleAdd = async () => {
     const cart = getAllCart();
     const isExist = cart.find((item) => item.id == product.id);
@@ -60,13 +61,32 @@ const ProductDetails = () => {
 
     // Check if the product already exists in the wishlist
     const isExist = wish.find((item) => item.id === product.id);
-    if (isExist) return alert("Coffee already exists!");
+    if (isExist)
+      return toast.warn("Product already exists!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
 
     // Push the new product to the wishlist
     wish.push(product); // Use product instead of wishlish
     localStorage.setItem("wish", JSON.stringify(wish)); // Save the updated wishlist to localStorage
 
-    alert("Successfully added!");
+    toast.success(`You have set ${product.title} to your wish list,`, {
+      position: "top-center", // Position of the toast
+      autoClose: 3000, // Auto close after 3 seconds
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
     addToWish(product);
   };
 

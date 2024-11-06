@@ -19,24 +19,22 @@ export const Context = ({ children }) => {
   }, []);
 
   const addToCart = (item) => {
-    if (!Array.isArray(carts)) {
-      // If carts is not defined or is not an array, initialize it as an empty array
-      setCart([]);
-    }
-    if (carts === 0) {
-      const updatedCart = [...carts, item];
-      setCart(updatedCart);
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-    } else {
-      localStorage.setItem("cart", JSON.stringify([item]));
-      setCart([item]);
-    }
+    // Check if item already exists in cart
+    const isExist = carts.find((cartItem) => cartItem.id === item.id);
+    if (isExist) return alert("Item already in cart!");
+
+    // Update cart state and localStorage
+    const updatedCart = [...carts, item];
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   const addToWish = (item) => {
+    // Check if item already exists in wishlist
     const isExist = wishs.find((wishItem) => wishItem.id === item.id);
     if (isExist) return alert("Item already in wishlist!");
 
+    // Update wishlist state and localStorage
     const updatedWish = [...wishs, item];
     setWish(updatedWish);
     localStorage.setItem("wish", JSON.stringify(updatedWish));
@@ -49,8 +47,8 @@ export const Context = ({ children }) => {
   };
 
   const removeCart = () => {
-    const newCart = localStorage.removeItem("cart");
-    setCart(newCart);
+    localStorage.removeItem("cart");
+    setCart([]); // Clear the cart state
   };
 
   const removeFromWish = (id) => {
@@ -58,13 +56,6 @@ export const Context = ({ children }) => {
     setWish(updatedWish);
     localStorage.setItem("wish", JSON.stringify(updatedWish));
   };
-
-  useEffect(() => {
-    const storedCarts = JSON.parse(localStorage.getItem("cart"));
-    if (storedCarts && Array.isArray(storedCarts)) {
-      setCart(storedCarts); // Set carts only if the stored data is a valid array
-    }
-  }, []);
 
   return (
     <CartContext.Provider

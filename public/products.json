@@ -18,23 +18,23 @@
   },
   {
     "id": 10,
-    "title": "Garmin Venu 2 Plus",
+    "title": "Apple Watch Series 9",
     "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
     "category": "Smart Watch",
-    "price": 449,
-    "description": "Garmin's advanced smart watch with fitness tracking, voice control, and health monitoring features.",
+    "price": 399,
+    "description": "The latest Apple Watch with advanced health tracking and brighter display.",
     "Specification": [
-      "1.3-inch AMOLED display",
-      "Pulse Ox sensor",
-      "Built-in GPS",
-      "Bluetooth & WiFi",
-      "Up to 9 days of battery life"
+      "45mm display",
+      "Always-on Retina display",
+      "Blood oxygen sensor",
+      "GPS + Cellular",
+      "watchOS 10"
     ],
     "availability": true,
-    "rating": 4.6
+    "rating": 4.8
   },
   {
-    "id": 3,
+    "id": 2,
     "title": "HP Spectre x360",
     "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
     "category": "Laptop",
@@ -52,41 +52,58 @@
   },
 
   {
-    "id": 5,
-    "title": "Samsung Galaxy S23",
+    "id": 4,
+    "title": "Lenovo ThinkPad X1 Carbon",
     "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
-    "category": "Phone",
-    "price": 849,
-    "description": "Samsung's latest Galaxy series phone with excellent camera quality and performance.",
+    "category": "Laptop",
+    "price": 1450,
+    "description": "A business laptop with a sleek design, excellent keyboard, and robust performance.",
     "Specification": [
-      "6.1-inch AMOLED display",
-      "Snapdragon 8 Gen 2",
-      "128GB storage",
-      "50MP triple rear camera",
-      "Android 13"
+      "Intel Core i7-1165G7",
+      "16GB RAM",
+      "1TB SSD",
+      "14-inch FHD display",
+      "Windows 10 Pro"
     ],
     "availability": true,
     "rating": 4.6
   },
   {
-    "id": 6,
-    "title": "Google Pixel 8",
+    "id": 5,
+    "title": "Asus ROG Zephyrus G14",
     "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
-    "category": "Phone",
-    "price": 799,
-    "description": "Google's latest smartphone with excellent camera features and clean Android experience.",
+    "category": "Laptop",
+    "price": 1599,
+    "description": "A powerful gaming laptop with a compact design and high refresh rate display.",
     "Specification": [
-      "6.3-inch OLED display",
-      "Google Tensor G3",
-      "128GB storage",
-      "50MP dual rear camera",
-      "Android 14"
+      "AMD Ryzen 9 5900HS",
+      "16GB RAM",
+      "1TB SSD",
+      "14-inch QHD display",
+      "Windows 10"
     ],
-    "availability": false,
-    "rating": 4.5
+    "availability": true,
+    "rating": 4.7
   },
   {
-    "id": 2,
+    "id": 6,
+    "title": "Acer Swift 3",
+    "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
+    "category": "Laptop",
+    "price": 749,
+    "description": "A lightweight laptop with great performance and long battery life.",
+    "Specification": [
+      "Intel Core i5-1135G7",
+      "8GB RAM",
+      "512GB SSD",
+      "14-inch FHD display",
+      "Windows 10"
+    ],
+    "availability": true,
+    "rating": 4.4
+  },
+  {
+    "id": 3,
     "title": "MacBook Air M2",
     "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
     "category": "Laptop",
@@ -104,6 +121,42 @@
   },
   {
     "id": 7,
+    "title": "Garmin Venu 2 Plus",
+    "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
+    "category": "Smart Watch",
+    "price": 449,
+    "description": "Garmin's advanced smart watch with fitness tracking, voice control, and health monitoring features.",
+    "Specification": [
+      "1.3-inch AMOLED display",
+      "Pulse Ox sensor",
+      "Built-in GPS",
+      "Bluetooth & WiFi",
+      "Up to 9 days of battery life"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+
+  {
+    "id": 9,
+    "title": "Google Pixel 8",
+    "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
+    "category": "Phone",
+    "price": 799,
+    "description": "Google's latest smartphone with excellent camera features and clean Android experience.",
+    "Specification": [
+      "6.3-inch OLED display",
+      "Google Tensor G3",
+      "128GB storage",
+      "50MP dual rear camera",
+      "Android 14"
+    ],
+    "availability": false,
+    "rating": 4.5
+  },
+
+  {
+    "id": 11,
     "title": "AirPods Pro 2",
     "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
     "category": "Ear Pods",
@@ -120,24 +173,7 @@
     "rating": 4.7
   },
   {
-    "id": 4,
-    "title": "iPhone 15",
-    "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
-    "category": "Phone",
-    "price": 999,
-    "description": "Apple’s latest flagship smartphone with advanced camera and performance capabilities.",
-    "Specification": [
-      "6.1-inch Super Retina XDR display",
-      "A17 Bionic chip",
-      "128GB storage",
-      "5G enabled",
-      "iOS 17"
-    ],
-    "availability": true,
-    "rating": 4.7
-  },
-  {
-    "id": 8,
+    "id": 12,
     "title": "Samsung Galaxy Buds2 Pro",
     "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
     "category": "Ear Pods",
@@ -154,20 +190,20 @@
     "rating": 4.6
   },
   {
-    "id": 9,
-    "title": "Apple Watch Series 9",
+    "id": 8,
+    "title": "Samsung Galaxy S23",
     "image": "https://i.ibb.co.com/Pz60DqL/download.jpg",
-    "category": "Smart Watch",
-    "price": 399,
-    "description": "The latest Apple Watch with advanced health tracking and brighter display.",
+    "category": "Phone",
+    "price": 849,
+    "description": "Samsung's latest Galaxy series phone with excellent camera quality and performance.",
     "Specification": [
-      "45mm display",
-      "Always-on Retina display",
-      "Blood oxygen sensor",
-      "GPS + Cellular",
-      "watchOS 10"
+      "6.1-inch AMOLED display",
+      "Snapdragon 8 Gen 2",
+      "128GB storage",
+      "50MP triple rear camera",
+      "Android 13"
     ],
     "availability": true,
-    "rating": 4.8
+    "rating": 4.6
   }
 ]
